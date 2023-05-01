@@ -1,7 +1,10 @@
-*{margin: 0; padding: 0;}
+*{
+    margin: 0;
+    padding:0;
+}
 body{
-    margin: 0; 
-    padding: 0;
+    margin: 0;
+    padding:0;
 }
 .box{
     background-color: #000000;
