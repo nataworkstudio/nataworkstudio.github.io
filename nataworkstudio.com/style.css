@@ -1,0 +1,216 @@
+
+:root{
+  --backgroundColor:#1B2026;
+  --bgPenColor:white;
+  --penHighlightColor:rgb(126, 152, 201);
+  --vernagirColor:rgb(255, 255, 255);
+}
+.mainwindow{
+  padding: 0;
+  position: relative;
+  max-width: 940px;
+  margin: auto;
+  background-color:var(--backgroundColor);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.red{
+  padding: 3rem;
+  color: var(--bgPenColor);
+}
+.red h2{
+  font-size: 2rem;
+  color: red;
+  text-align: center;
+}
+.red p{
+  font-size: 20px;
+}
+.line5px{
+  width:100%;
+  height: 5px;
+  background-color: var(--backgroundColor);
+}
+/* //////////////////////////     NEW FEATURES */
+.newFeatures{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+}
+.newFeatures div{
+  margin: 5px;
+  /* background-color: rgba(137, 43, 226, 0.212); */
+}
+.newFeatures div img{
+  position: relative;
+  /* left:-20px; */
+  width: 100%;
+}
+.newFeatures div h1{
+  margin-left: 10px;
+  color: var(--bgPenColor);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  padding: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  /* padding-left: 30%; */
+}
+#newFH{
+  color: var(--penHighlightColor);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 50;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+.newFeatures_bottom{
+  position: relative;
+}
+.newFeatures_bottom img{
+  position: relative;
+  width: 100%;
+}
+.newFeatures_bottom h1{
+  position: absolute;
+  right: 10%;
+  top:0px;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 200;
+  font-size: 1.2rem;
+  overflow: hidden;
+  letter-spacing: 0.3rem;
+  transform: scale(1,0.9);
+  color: var(--bgPenColor);
+  z-index: 10;
+}
+/* ////////////////////////////////     TOOLS */
+.tools{
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.modeling_tools{
+  margin: 0; 
+  padding: 50px;
+  padding-top:0;
+  padding-bottom:0;
+}
+.modeling_tools h1{
+  text-align: center;
+  color: rgb(202, 202, 202);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  font-size: 2.5rem;
+  padding: 2.2rem;
+  padding-top: 0;
+  border-bottom:1px solid var(--penHighlightColor)
+}
+.textOnImg{
+  display: block;
+  /* grid-template-rows: repeat(auto-fill, minmax(350px, auto)); */
+}
+.imgContainer{
+  max-width: 575px;
+}
+.imgContainer img{
+  width:100%;
+}
+.tool_content_div {
+  min-width: 340;
+  max-width: 340;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.tool_name{
+  color: var(--penHighlightColor);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 50;
+  font-size: 1.5rem;
+  padding-top: 0;
+}
+.tool_content{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  padding-bottom: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  /* padding-left: 30%; */
+}
+
+
+/* //////////////         GLOBAL NAME  */
+.vernagir{
+  text-align: center;
+  color: var(--vernagirColor);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  font-size: 1.7rem;
+  padding: 2.2rem;
+  padding-top: 0;
+  border-bottom:1px solid var(--penHighlightColor);
+  margin-left: 10%;
+  margin-right: 10%;
+}
+/* //////////////         PRIMITIVES  */
+
+.primitives_i{
+  position: relative;
+  display: flex;
+  grid-template-rows: repeat(auto-fill, minmax(300px, auto));
+}
+@media only screen and (max-width: 700px) {
+  .primitives_i{
+    position: relative;
+    display: block;
+  }
+}
+/* //////////////         ANCHOR  */
+.anchor_point{
+  margin-left:0.5rem;
+  margin-right:0.5rem;
+  display: flex;
+}
+
+
+.prim_img_container img{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+/* //////////////         FSPY  */
+.fspy_ae_importer{
+  margin: 0; 
+  padding: 50px;
+  padding-top:0 ;
+}
+.fspy_ae_importer h1{
+  text-align: center;
+  color: var(--bgPenColor);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  font-size: 1.7rem;
+  padding: 2.2rem;
+  padding-top: 0;
+  border-bottom:1px solid var(--penHighlightColor)
+}
+.fspy_ae_importer img{
+  width: 100%;
+}
+
+.water_text{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  color: var(--penHighlightColor);
+  margin-right: 5%;
+  
+}
+.water_text h1{
+  color: var(--penHighlightColor);
+}
