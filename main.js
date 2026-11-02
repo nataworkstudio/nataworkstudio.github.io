@@ -256,18 +256,20 @@ const APP={
                     throw new Error('Ваш браузер не поддерживает Blob API');
                 }
             }
-
+            var text = curRes;
+            var dataUri = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+            window.location.href = dataUri;
             // Пример использования:
-            var blob = textToBlob(curRes, 'text/plain;charset=utf-8');
+            // var blob = textToBlob(curRes, 'text/plain;charset=utf-8');
             // var blob=new Blob([curRes], {type: "text/plain"})
-            if(window.navigator && window.navigator.msSaveOrOpenBlob){
-                window.navigator.msSaveBlob(blob,anun)
-            }else{
-                var a = document.createElement("a")
-                a.href = window.URL.createObjectURL(blob)
-                a.download = anun
-                a.click()
-            }
+            // if(window.navigator && window.navigator.msSaveOrOpenBlob){
+            //     window.navigator.msSaveBlob(blob,anun)
+            // }else{
+            //     var a = document.createElement("a")
+            //     a.href = window.URL.createObjectURL(blob)
+            //     a.download = anun
+            //     a.click()
+            // }
         }
 
     },
