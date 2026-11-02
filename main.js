@@ -259,7 +259,7 @@ const APP={
 
             // Пример использования:
             var blob = textToBlob(curRes, 'text/plain;charset=utf-8');
-            var blob=new Blob([curRes], {type: "text/plain"})
+            // var blob=new Blob([curRes], {type: "text/plain"})
             if(window.navigator && window.navigator.msSaveOrOpenBlob){
                 window.navigator.msSaveBlob(blob,anun)
             }else{
