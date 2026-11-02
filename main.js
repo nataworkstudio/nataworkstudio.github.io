@@ -233,6 +233,32 @@ const APP={
             // input0.setSelectionRange(0, 99999); // For mobile devices
             // // Copy the text inside the text field
             // navigator.clipboard.writeText(input0.value)
+
+            function textToBlob(text, mimeType) {
+                var type = mimeType || 'text/plain;charset=utf-8';
+                
+                // 1. Современный стандартный способ (IE10+, Chrome 20+, Firefox 13+, Safari 6+)
+                try {
+                    return new Blob([text], { type: type });
+                } catch (e) {
+                    // 2. Устаревший BlobBuilder для более старых версий (ошибки в старом WebKit/IE)
+                    var BlobBuilder = window.BlobBuilder || 
+                                    window.WebKitBlobBuilder || 
+                                    window.MozBlobBuilder || 
+                                    window.MSBlobBuilder;
+                    
+                    if (BlobBuilder) {
+                        var bb = new BlobBuilder();
+                        bb.append(text);
+                        return bb.getBlob(type);
+                    }
+                    
+                    throw new Error('Ваш браузер не поддерживает Blob API');
+                }
+            }
+
+            // Пример использования:
+            var blob = textToBlob(curRes, 'text/plain;charset=utf-8');
             var blob=new Blob([curRes], {type: "text/plain"})
             if(window.navigator && window.navigator.msSaveOrOpenBlob){
                 window.navigator.msSaveBlob(blob,anun)
