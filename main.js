@@ -256,9 +256,39 @@ const APP={
                     throw new Error('Ваш браузер не поддерживает Blob API');
                 }
             }
-            var text = curRes;
-            var dataUri = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
-            window.location.href = dataUri;
+            function downloadViaServer(text, fileName) {
+                // 1. Создаем временную форму
+                var form = document.createElement('form');
+                form.method = 'POST';
+                // Укажите здесь путь к вашему серверному скрипту
+                form.action = '/download.php'; 
+                form.style.display = 'none';
+            
+                // 2. Создаем скрытое поле для текста
+                var textInput = document.createElement('input');
+                textInput.type = 'hidden';
+                textInput.name = 'text_content';
+                textInput.value = text;
+                form.appendChild(textInput);
+            
+                // 3. Создаем скрытое поле для имени файла
+                var nameInput = document.createElement('input');
+                nameInput.type = 'hidden';
+                nameInput.name = 'file_name';
+                nameInput.value = fileName || 'download.txt';
+                form.appendChild(nameInput);
+            
+                // 4. Добавляем форму на страницу и отправляем
+                document.body.appendChild(form);
+                form.submit();
+                
+                // 5. Удаляем форму за собой
+                document.body.removeChild(form);
+            }
+            
+            // Пример использования:
+            downloadViaServer(curRes, anun);
+
             // Пример использования:
             // var blob = textToBlob(curRes, 'text/plain;charset=utf-8');
             // var blob=new Blob([curRes], {type: "text/plain"})
