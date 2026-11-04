@@ -6,7 +6,7 @@ body {
     margin: 0;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* overflow hidden; */
+    overflow: hidden;
     cursor: default;
     font-family: Arial, sans-serif;
     font-size: 1rem;
@@ -79,15 +79,17 @@ input{
 }
 .centerBox{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   position: relative;
   width:98%;
+  height:calc( 100vh - 6rem - 4rem - 2px);
   margin-left: 1%;
   border: 1px solid rgb(10, 130, 30);
   border-radius: 1rem;
   padding-bottom: 7px;
   padding-top: 7px;
+  overflow-y: auto;
 }
 .prompter{
     display:none;
