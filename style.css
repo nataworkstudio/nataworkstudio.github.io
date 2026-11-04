@@ -3,11 +3,13 @@
     padding: 0;
 }
 body {
-    height: 100%;
     margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     /* overflow hidden; */
     cursor: default;
     font-family: Arial, sans-serif;
+    font-size: 1rem;
     background-color: rgb(59, 59, 59);
     color:white;
 }
@@ -25,39 +27,30 @@ button:hover{
 }
 
 .res{
-    width:100%;
-    position: fixed;
-    font-size: 2rem;
-    text-align:center;
-    vertical-align: auto;
+  font-size: 2rem;
+  text-align:center;
+  vertical-align: auto;
+  color: whitesmoke;
+  padding: 1rem;
 }
-.addElem{
-    position: fixed;
-    left:20px;
-    top:35px;
+#button-group{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
 }
-.addDate{
-    position: fixed;
-    left:20px;
-    top:65px;
-    /* background-color: rgb(109, 182, 250); */
+#button-group div{
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
 }
 .loadFile{
-    position: fixed;
-    width:180px;
-    height: 30px;
-    left:20px;
-    top:105px;
-    border: 0px solid;
-    /* background-color: rgb(20, 116, 201); */
-    color: rgb(255, 255, 255);
+  display: none;
 }
 
-.saveElem{
-    position: fixed;
-    left:20px;
-    top:145px;
-}
 .elem{
     display: flex;
     padding-top: 3px;
@@ -77,21 +70,24 @@ button:hover{
     min-width: 200px;
     text-align: left;
     max-height: 20px;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 input{
-    position: relative;
-    height:20px;
-    width:80px;
-    /* border: 1px solid rgb(180, 180, 180); */
-    /* background-color: rgb(224, 229, 235); */
+  font-size: 1rem;
+  position: relative;
+  width:100px;
 }
 .centerBox{
-    position: absolute;
-    top: 175px;
-    max-height: 75%;
-    width:100%;
-    overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  width:98%;
+  margin-left: 1%;
+  border: 1px solid rgb(10, 130, 30);
+  border-radius: 1rem;
+  padding-bottom: 7px;
+  padding-top: 7px;
 }
 .prompter{
     display:none;
@@ -101,26 +97,28 @@ input{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 120px;
+    width: 90%;
+    max-width: 500px;
     border-radius: 1rem;
     z-index: 1000;
+    font-size: 1.5rem;
 }
 .prompter input{
     border: 1px solid rgb(180, 180, 180);
     background-color: rgb(224, 229, 235);
 }
-.bok{
-    position: absolute;
-    right:6.5rem;
-    bottom:1rem;
-    width:5rem;
+.prompter button{
+  font-size: 1rem;
+  border-radius: 0.5rem;
 }
-.bcl{
-    position: absolute;
-    right:1rem;
-    bottom:1rem;
-    width:5rem;
+.prompter p{
+  padding: 0.5rem;
+}
+.prompter div{
+  display: flex;
+  flex-direction: row-reverse;
+  gap:1rem;
+  padding-top: 1rem;
 }
 #_0_01{
     margin-top:0.5rem ;

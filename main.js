@@ -48,11 +48,12 @@ dataValue.addEventListener('change', function() {
 const APP={
     callPrompter:function(name,input,input2,but1,but2){
         var prompter=document.getElementsByClassName('prompter')[0]
-        var pName=prompter.children[0]
-        var pValue=prompter.children[1]
-        var vValue=prompter.children[2]
-        var ok=prompter.children[3]
-        var cancel=prompter.children[4]
+        var pName=document.getElementById('id_date')
+        var pValue=document.getElementById('_0_01')
+        var vValue=document.getElementById('_0_02')
+        var ok=document.getElementById('prompt_ok')
+        var cancel=document.getElementById('prompt_cancel')
+
         pName.innerHTML=name
         pValue.value=input
         vValue.value=input2
@@ -132,13 +133,13 @@ const APP={
     removeElement:function(){
         function funcEdit(){
             var elem=this.target
-
             var prompter=document.getElementsByClassName('prompter')[0]
-            var pName=prompter.children[0]
-            var pValue=prompter.children[1]
-            var vValue=prompter.children[2]
-            var ok=prompter.children[3]
-            var cancel=prompter.children[4]
+            var pName=document.getElementById('id_date')
+            var pValue=document.getElementById('_0_01')
+            var vValue=document.getElementById('_0_02')
+            var ok=document.getElementById('prompt_ok')
+            var cancel=document.getElementById('prompt_cancel')
+
             pName.innerHTML='Ամսաթիվ'
             pValue.value=this.target.innerHTML
             ok.innerHTML='Լավ'
@@ -224,8 +225,7 @@ const APP={
             {name:UILg.Cancel}
         )
         function saveResFunc(){
-            var prompter=document.getElementsByClassName('prompter')[0]
-            var pValue=prompter.children[1]
+            var pValue=document.getElementById('_0_01')
             var anun=pValue.value
             anun+=".json"
             // var input0=UI.create('input','text',{class:'clipboard'})
@@ -274,9 +274,8 @@ const APP={
     createElement:function(){
         APP.callPrompter('Վճարի Անվանումը և Գումարը','','',{name:'Լավ',func:get_elementValue},{name:'Չեղարկել'})
         function get_elementValue(){
-            var prompter=document.getElementsByClassName('prompter')[0]
-            var anun=prompter.children[1].value
-            var gumar=prompter.children[2].value
+            var anun=document.getElementById('_0_01').value
+            var gumar=document.getElementById('_0_02').value
             UI.centerGroup.create('div',Room.toHTML({text:anun,input:gumar,}),{class:'elem'})
             APP.removeElement()
             APP.getResult()
@@ -284,6 +283,3 @@ const APP={
     }
 }
 
-function havEr(koxm){
-    return koxm/2*Math.sqrt((koxm*koxm)-((koxm/2)*(koxm/2)))
-}

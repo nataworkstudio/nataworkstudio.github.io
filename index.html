@@ -10,19 +10,31 @@
     </head>
     <body>
         <div class="mainwindow">
-            <p class="res">0</p>
-            <button class="addElem">Ավելացնել նոր Վճար </button>
-            <button class="addDate">Ստեղծել Ամսաթիվ</button>
-            <button class="saveElem">Պահպանել Արդյունքը</button>
+            
+            <div id="button-group">
+              <div>
+                <button roomData="addProduct" class="addElem">Ավելացնել նոր Վճար </button>
+                <button roomData="addProduct" class="addDate">Ստեղծել Ամսաթիվ</button>
+              </div>
+              <div>
+                <button roomData="saveResult" class="saveElem">Պահպանել Արդյունքը</button>
+                <button roomData="chooseFile" class="inputFile" onclick="document.getElementsByClassName('loadFile')[0].click()">Ընտրել Ֆայլ</button>
+              </div>
+            </div>
+            <div>
+              <p class="res">0</p>
+            </div>
             <div class="centerBox"></div>
             <input class="loadFile" type="file">
 
             <div class="prompter">
-                <p style="color: black;">Ամսաթիվ</p>
+                <p id="id_date" style="color: black;">Ամսաթիվ</p>
                 <input type="text" name="0" id="_0_01" autofocus placeholder=" անվանում">
                 <input type="number" name="0" id="_0_02" placeholder=" գումար">
-                <button class="bok">OK</button>
-                <button class="bcl">Cancel</button>
+                <div>
+                  <button id="prompt_ok" class="bok">OK</button>
+                  <button id="prompt_cancel" class="bcl">Cancel</button>
+                </div>
             </div>
         </div>
         <script src="main.js"></script>
