@@ -15,8 +15,8 @@ body {
 }
 button{
     padding:5px;
-    /* padding-left: 10px;
-    padding-right: 10px; */
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: rgb(10, 130, 30);
     color:white;
     border:none;
@@ -118,7 +118,7 @@ input{
 .prompter button{
   font-size: 1rem;
   border-radius: 0.5rem;
-  width:30%;
+  width:32%;
 }
 .prompter p{
   padding: 0.5rem;
