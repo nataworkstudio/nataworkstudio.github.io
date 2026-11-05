@@ -46,13 +46,15 @@ dataValue.addEventListener('change', function() {
 })
 
 const APP={
-    callPrompter:function(name,input,input2,but1,but2){
+    callPrompter:function(name,input,input2,but1,but2,but3){
         var prompter=document.getElementsByClassName('prompter')[0]
+        var viewport=document.getElementById('veiwport-screen')
         var pName=document.getElementById('id_date')
         var pValue=document.getElementById('_0_01')
         var vValue=document.getElementById('_0_02')
         var ok=document.getElementById('prompt_ok')
         var cancel=document.getElementById('prompt_cancel')
+        var add=document.getElementById('prompt_add')
 
         pName.innerHTML=name
         pValue.value=input
@@ -63,20 +65,32 @@ const APP={
         if(but2 && but2.name){
             cancel.innerHTML=but2.name
         }
+        if(but3 && but3.name){
+          add.style.display="block"
+          add.innerHTML=but3.name
+        }else{
+          add.style.display="none"
+        }
 
         ok.onclick=function(){
-            prompter.style.display='none'
+            viewport.style.display='none'
             pValue.innerHTML=''
             if(but1 && but1.func instanceof Function)
                 but1.func()
         }
         cancel.onclick=function(){
-            prompter.style.display='none'
+            viewport.style.display='none'
             pValue.innerHTML=''
             if(but2 && but2.func instanceof Function)
                 but2.func()
         }
-        prompter.style.display='block'
+        add.onclick=function(){
+            viewport.style.display='none'
+            pValue.innerHTML=''
+            if(but3 && but3.func instanceof Function)
+                but3.func()
+        }
+        viewport.style.display='flex'
         if(input!==undefined){
             pValue.style.display='block'
         }else{
@@ -131,9 +145,11 @@ const APP={
         }
     },
     removeElement:function(){
+      var productID=this
         function funcEdit(){
             var elem=this.target
             var prompter=document.getElementsByClassName('prompter')[0]
+            var viewport=document.getElementById('veiwport-screen')
             var pName=document.getElementById('id_date')
             var pValue=document.getElementById('_0_01')
             var vValue=document.getElementById('_0_02')
@@ -149,13 +165,13 @@ const APP={
                 if(elem.parentElement.className==='elem'){
                     elem.parentElement.children[1].value=vValue.value
                 }
-                prompter.style.display='none'
+                viewport.style.display='none'
             }
             cancel.onclick=function(){
-                prompter.style.display='none'
+                viewport.style.display='none'
             }
             pValue.style.display='block'
-            prompter.style.display='block'
+            viewport.style.display='flex'
             if(elem.parentElement.className=='elem'){
                 pName.innerHTML='Վճարի Անվանումը և Գումարը'
                 vValue.value=elem.parentElement.children[1].value
@@ -168,6 +184,9 @@ const APP={
             node.parentNode.removeChild(node)
             APP.getResult()
         }
+        function funcAdd(productID){
+          alert(productID)
+        }
         var pp=document.getElementsByClassName('elem')
         for(var h=0;h<pp.length;h++){
             pp[h].onclick=function(e){
@@ -177,7 +196,8 @@ const APP={
                         undefined,
                         undefined,
                         {target:e.target,name:'Խմբագրել',func:funcEdit},
-                        {target:e.target,name:'Հեռացնել',func:funcRemove}
+                        {target:e.target,name:'Հեռացնել',func:funcRemove},
+                        // {target:e.target,name:'Ավելացնել',func:function(){funcAdd(productID)}}
                     )
                 }
             }
