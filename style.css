@@ -14,7 +14,9 @@ body {
     color:white;
 }
 button{
-    padding:5px 20px;
+    padding:5px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: rgb(10, 130, 30);
     color:white;
     border:none;
