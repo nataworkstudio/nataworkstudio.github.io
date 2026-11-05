@@ -1,3 +1,21 @@
+const updateviewportHeight = () => {
+  if (window.visualViewport) {
+    // Получаем реальную высоту за вычетом клавиатуры
+    const visibleHeight = window.visualViewport.height;
+    
+    // Передаем значение в CSS
+    document.documentElement.style.setProperty(
+      '--keyboard-visible-height', 
+      visibleHeight+'px'
+    );
+  }
+};
+// Отслеживаем изменение размеров (вход/выход клавиатуры)
+window.visualViewport?.addEventListener('resize', updateviewportHeight);
+window.visualViewport?.addEventListener('scroll', updateviewportHeight);
+updateviewportHeight();
+
+
 
 const UI=document.getElementsByClassName('mainwindow')[0]
 var UILg={
@@ -46,7 +64,7 @@ dataValue.addEventListener('change', function() {
 })
 
 const APP={
-    callPrompter:function(name,input,input2,but1,but2,but3){
+    callPrompter:function(name,input,input2,but1,but2){
         var prompter=document.getElementsByClassName('prompter')[0]
         var viewport=document.getElementById('veiwport-screen')
         var pName=document.getElementById('id_date')
@@ -54,7 +72,6 @@ const APP={
         var vValue=document.getElementById('_0_02')
         var ok=document.getElementById('prompt_ok')
         var cancel=document.getElementById('prompt_cancel')
-        var add=document.getElementById('prompt_add')
 
         pName.innerHTML=name
         pValue.value=input
@@ -64,12 +81,6 @@ const APP={
         }
         if(but2 && but2.name){
             cancel.innerHTML=but2.name
-        }
-        if(but3 && but3.name){
-          add.style.display="block"
-          add.innerHTML=but3.name
-        }else{
-          add.style.display="none"
         }
 
         ok.onclick=function(){
@@ -83,12 +94,6 @@ const APP={
             pValue.innerHTML=''
             if(but2 && but2.func instanceof Function)
                 but2.func()
-        }
-        add.onclick=function(){
-            viewport.style.display='none'
-            pValue.innerHTML=''
-            if(but3 && but3.func instanceof Function)
-                but3.func()
         }
         viewport.style.display='flex'
         if(input!==undefined){
@@ -145,7 +150,6 @@ const APP={
         }
     },
     removeElement:function(){
-      var productID=this
         function funcEdit(){
             var elem=this.target
             var prompter=document.getElementsByClassName('prompter')[0]
@@ -184,9 +188,6 @@ const APP={
             node.parentNode.removeChild(node)
             APP.getResult()
         }
-        function funcAdd(productID){
-          alert(productID)
-        }
         var pp=document.getElementsByClassName('elem')
         for(var h=0;h<pp.length;h++){
             pp[h].onclick=function(e){
@@ -196,8 +197,7 @@ const APP={
                         undefined,
                         undefined,
                         {target:e.target,name:'Խմբագրել',func:funcEdit},
-                        {target:e.target,name:'Հեռացնել',func:funcRemove},
-                        // {target:e.target,name:'Ավելացնել',func:function(){funcAdd(productID)}}
+                        {target:e.target,name:'Հեռացնել',func:funcRemove}
                     )
                 }
             }
